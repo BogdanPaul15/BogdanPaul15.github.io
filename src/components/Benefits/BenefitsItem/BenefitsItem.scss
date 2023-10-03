@@ -1,0 +1,47 @@
+@import "../../../styles/_mixins.scss";
+
+.benefitItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 3rem;
+    .benefitIcon {
+        border-radius: 7px;
+        background-color: $primary-200;
+        .icon {
+            padding: .75rem;
+            width: 35px;
+            height: 35px;
+            @media (min-width: $tablet) {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    }
+    .benefitTitle {
+        font-family: $font-quicksand;
+        font-weight: $medium;
+        font-size: 1.25rem;
+        line-height: 1.5rem;
+        text-align: center;
+        color: $black-950;
+        margin: 1rem 0 0;
+        @media (min-width: $tablet) {
+            font-size: 1.5rem;
+        }
+    }
+    .benefitDescription {
+        font-family: $font-montserrat;
+        font-weight: $regular;
+        font-size: .75rem;
+        line-height: 1.25rem;
+        color: $black-800;
+        text-align: center;
+        margin: 1.25rem 0 0;
+        max-width: 400px;
+        @media (min-width: $tablet) {
+            font-size: 0.875rem;
+        }
+    }
+}

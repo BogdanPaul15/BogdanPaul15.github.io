@@ -1,0 +1,13 @@
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="ilustr">
+<mask id="mask0_258_15" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="60" height="60">
+<rect id="Rectangle 32" width="60" height="60" rx="8" fill="#0068E9"/>
+</mask>
+<g mask="url(#mask0_258_15)">
+<rect id="Rectangle 33" width="60" height="60" rx="8" fill="#0068E9"/>
+<circle id="Ellipse 7" cx="57.6003" cy="9.60002" r="16.8" fill="#D3E9FB"/>
+<rect id="Rectangle 34" x="12" y="31.2" width="21.6" height="38.4" fill="#D3E9FB"/>
+<rect id="Rectangle 35" x="33.6001" y="39.6" width="18" height="38.4" fill="#005AC8"/>
+</g>
+</g>
+</svg>

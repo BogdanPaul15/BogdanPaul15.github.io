@@ -1,0 +1,63 @@
+@import "../../styles/_mixins.scss";
+
+.regionSection {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .regionSearch {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 4rem;
+        width: 100%;
+        margin-top: 3rem;
+        .searchContainer {
+            flex-grow: 3;
+            display: block;
+            width: 100%;
+            max-width: 500px;
+            @media (min-width: $desktop) {
+                max-width: none;
+            }
+        }
+        .regionSelect {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            .germanyMap {
+                display: block;
+                margin: auto;
+                width: 100%;
+                height: 100%;
+                max-width: 40rem;
+                max-height: 35rem;
+                .land {
+                    transition: fill .2s ease-in-out;
+                    &:hover {
+                        fill: $primary-950;
+                        cursor: pointer;
+                        transition: fill .2s ease-in-out;
+                    }
+                }
+                .highlightRegion {
+                    fill: $primary-950;
+                    cursor: pointer;
+                    transition: fill .2s ease-in-out;
+                }
+                @media (min-width: $desktop) {
+                    margin: 0;
+                }
+            }
+        }
+        @media (min-width: $desktop) {
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 5rem;
+            margin-top: 4rem;
+        }
+    }
+}

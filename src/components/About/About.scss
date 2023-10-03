@@ -1,0 +1,75 @@
+@import "../../styles/_mixins.scss";
+
+.aboutSection {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 6rem;
+    @media (min-width: $desktop) {
+        flex-direction: row;
+        justify-content: space-between;       
+    }
+    .aboutText {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        @media (min-width: $desktop) {
+            justify-content: flex-start;
+        }
+        .aboutDescription {
+            font-family: $font-montserrat;
+            font-weight: $medium;
+            font-size: 0.875rem;
+            line-height: 1.5rem;
+            letter-spacing: 0;
+            color: $black-800;
+            max-width: 700px;
+            @media (min-width: $tablet) {
+                font-size: 1rem;
+                line-height: 2rem;
+            }
+        }
+        .extraDetails {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            @media (min-width: $desktop) {
+                margin: 3rem 0;
+            }
+        }
+    }
+    .imageSection {
+        border-radius: 10px;
+        max-height: 800px;
+        max-width: 400px;
+        display: inline-block;
+        vertical-align: top;
+        background-color: $primary-950;
+        transform: rotate(1deg);
+        @media (min-width: $tablet) {
+            transform: rotate(1deg);
+        }
+        @media (min-width: $desktop) {
+            transform: rotate(1deg);
+        }
+        .image {
+            border-radius: 10px;
+            width: 100%;
+            height: auto;
+            transform: translate(-20px, -20px) rotate(1deg);
+            position: relative;
+            @media (min-width: $tablet) {
+                transform: translate(-30px, -30px) rotate(1deg);
+            }
+            @media (min-width: $desktop) {
+                transform: translate(-40px, -40px) rotate(1deg);
+            }
+        }
+    }
+    @media (min-width: $desktop) {
+        flex-direction: row;
+    }
+}

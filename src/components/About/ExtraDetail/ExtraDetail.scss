@@ -1,0 +1,43 @@
+@import "../../../styles/_mixins.scss";
+
+.sectionExtra {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    .iconExtra {
+        height: 23px;
+        width: 23px;
+        @media (min-width: $desktop) {
+            height: 25px;
+            width: 25px;
+        }
+    }
+    .textExtra {
+        .titleExtra {
+            margin: 0;
+            text-align: left;
+            font-family: $font-quicksand;
+            font-size: 1.25rem;
+            font-weight: $semiBold;
+            line-height: 1.5rem;
+            color: $black-900;
+            @media (min-width: $tablet) {
+                font-size: 1.5rem;
+                line-height: 1.75rem;
+            }
+        }
+        .descExtra {
+            text-align: justify;
+            margin: .5rem 0 0 0;
+            font-family: $font-montserrat;
+            font-size: .75rem;
+            font-weight: $regular;
+            line-height: 2em;
+            max-width: 700px;
+            @media (min-width: $tablet) {
+                font-size: 0.875rem;
+                line-height: 2.25em;
+            }
+        }
+    }
+}

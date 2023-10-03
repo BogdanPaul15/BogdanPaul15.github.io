@@ -1,0 +1,221 @@
+@import "../../styles/_mixins.scss";
+
+.header {
+    &:after {
+        content:"";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba( 255, 255, 255, 0.5 );
+        border-bottom: 1px solid rgba( 255, 255, 255, 0.25 );
+        backdrop-filter: blur( 10px );
+        -webkit-backdrop-filter: blur( 10px );
+    }
+    position: sticky;
+    top: 0;
+    z-index: 9;
+    padding: 0 1rem;
+    max-width: 85rem;
+    margin: auto;
+    @media (min-width: $tablet) {
+        padding: 0 1.5rem;
+    }
+    @media (min-width: $desktop) {
+        padding: 0 2rem;
+    }
+    .headerMain {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+        padding: 1.5rem 0;
+        .logo {
+            display: block;
+            width: 113px;
+            height: 29px;
+            @media (min-width: 300px) {
+                width: 152px;
+                height: 39px;
+            }
+            @media (min-width: $desktop) {
+                width: 220px;
+                height: 73px;
+            }
+        }
+    }
+}
+
+.menuTrigger {
+    display: block;
+    padding: 0.75rem;
+    text-align: center;
+    background: transparent;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    @media (min-width: $desktop) {
+        display: none;
+    }
+}
+
+.menuTrigger .icon {
+    display: block;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0.35rem 0 0;
+    box-sizing: border-box;
+}
+
+.activeMenu .menuTrigger .icon {
+    padding: 0.625rem 0 0;
+}
+
+.hamburgerBar {
+    display: block;
+    width: 1.5rem;
+    height: 0.1rem;
+    margin: 0 0 0.2rem;
+    background-color: $black-950;
+    border-radius: 0.25rem;
+    transition: transform .4s ease-out;
+}
+
+.hamburgerBarCross {
+    display: none;
+}
+
+.hamburgerBar3 {
+    margin: 0;
+    transition: width .2s ease-in-out;
+}
+
+.activeMenu {
+    .hamburgerBar3 {
+        width: 0px;
+        transition: width .3s ease-in-out;
+    }
+    .hamburgerBar1 { 
+        position: absolute; 
+        transform: rotate(45deg); 
+        margin-top: 0; 
+        transition: transform .3s ease-in-out;
+    }
+    .hamburgerBar2 { 
+        position: absolute; 
+        transform: rotate(-45deg); 
+        transition: transform .3s ease-in-out;
+    }
+    .mainMenu {
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.mainMenu {
+    padding: 0.5rem 1.875rem;
+    max-height: calc(100vh - 6rem);
+    overflow-y: auto;
+    background-color: $primary-950;
+    width: 100%;
+    position: fixed;
+    line-height: 1.5rem;
+    top: 6rem;
+    left: 0;
+    box-sizing: border-box;
+    transform: translate3d(-100%, 0, 0);
+    transition: transform .20s;
+    transition-timing-function: cubic-bezier(.4,0,.2,1);
+    box-shadow: 0 25px 50px -12px rgb(0 0 0 / .25);
+    @media (min-width: $desktop) {
+        order: 3;
+        width: auto;
+        height: unset;
+        overflow: visible;
+        transform: none;
+        transition: none;
+        padding: 0;
+        background: transparent;
+        position: static;
+        top: unset;
+        left: unset;
+        display: flex;
+        flex-direction: row;
+        box-shadow: none;
+    }
+    .mainMenuList {
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        @media (min-width: $desktop) {
+            flex-direction: row;
+            gap: 2rem;
+        }
+        .mainMenuItem {
+            display: block;
+            border-bottom: 1px solid $black-100;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            &:last-child {
+                border-bottom: none;
+            }
+            @media (min-width: $desktop) {
+                border-bottom: none;
+                margin-top: none;
+                padding: 0;
+            }
+            .mainMenuLink {
+                display: block;
+                color: $black-50;
+                text-decoration: none;
+                font-family: $font-quicksand;
+                font-weight: $semiBold;
+                font-size: 1rem;
+                line-height: 1.5rem;
+                @media (min-width: $desktop) {
+                    color: $black-950;
+                    padding: 0.2rem;
+                    position: relative;
+                    z-index: 1;
+                    &:hover {
+                        color: $primary-950;
+                    }
+                    &::before {
+                        content: '';
+                        position: absolute;
+                        height: 3.5px;
+                        width: 0;
+                        border-radius: 16px;
+                        background-color: $primary-950;
+                        top: 110%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        z-index: -1;
+                        -webkit-transition: all 0.3s ease-out 0s;
+                        -moz-transition: all 0.3s ease-out 0s;
+                        -ms-transition: all 0.3s ease-out 0s;
+                        -o-transition: all 0.3s ease-out 0s;
+                        transition: all 0.3s ease-out 0s;
+                    }
+                    &:hover::before {
+                        width: 65%;
+                    }
+                    transition: all 0.3s ease-in-out;
+                }
+            }
+            @media (min-width: $desktop) {
+                .active {
+                    color: $primary-950;
+                    &::before {
+                        width: 70%;
+                    }
+                }
+            }
+        }
+    }
+}

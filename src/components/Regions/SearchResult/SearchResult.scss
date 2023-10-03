@@ -1,0 +1,32 @@
+@import "../../../styles/_mixins.scss";
+
+.regionItem {
+    display: block;
+    padding: 0.5rem;
+    background-color: $black-50;
+    @media (min-width: $desktop) {
+        white-space: nowrap;
+    }
+    &:hover {
+        border-radius: 0.5rem;
+        background-color: $primary-950;
+        transition: background-color .3s ease-in-out;
+        .regionLink .regionText {
+            color: $black-50;
+        }
+    }
+    .regionLink {
+        display: block;
+        text-decoration: none;
+        color: $black-800;
+        .regionText {
+            font-family: $font-montserrat;
+            font-size: 0.875rem;
+            line-height: 1rem;
+            @media (min-width: $desktop) {
+                font-size: 1rem;
+                line-height: 1.5rem;
+            }
+        }
+    }
+}

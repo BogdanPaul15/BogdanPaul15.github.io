@@ -1,0 +1,293 @@
+@import "../../../styles/_mixins.scss";
+
+.searchRegion {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    justify-content: center;
+    gap: .5rem;
+    .regionFieldsetSearch {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        padding: 0;
+        border: none;
+        width: 100%;
+        .iconSearchRegion {
+            display: none;
+            @media (min-width: $tablet) {
+                display: block;
+                position: absolute;
+                margin-top: 0.84rem;
+                margin-left: 0.875rem;
+            }
+        }
+        .regionInput {
+            flex-grow: 2;
+            font-size: 0.875rem;
+            font-family: $font-montserrat;
+            font-weight: $medium;
+            padding: 0.5rem;
+            background-color: $black-100;
+            border-radius: 6px;
+            border: 1px solid transparent;
+            outline: none;
+            box-sizing: border-box;
+            transition: border .2s ease-in-out, background-color .2s ease-in-out;
+            &:hover, &:focus {
+                border: 1px solid $primary-950;
+                background-color: $primary-200;
+            }
+            @media (min-width: 300px) {
+                padding: 0.875rem;
+            }
+            @media (min-width: $tablet) {
+                text-indent: 1.75rem;
+            }
+        }
+        input[type="search" i]::-webkit-search-cancel-button {
+            -webkit-appearance: none;
+            height: 1em;
+            width: 1em;
+            background: url("../../../assets/images/x.svg") no-repeat 50% 50%;
+            background-size: contain;
+            opacity: 0;
+            pointer-events: none;
+        }
+        input[type="search"]:focus::-webkit-search-cancel-button {
+            opacity: 1;
+            pointer-events: all;
+        }
+        input[type="search"]:hover::-webkit-search-cancel-button {
+            cursor: pointer;
+        }
+    }
+    .regionFieldsetCheckbox {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: .5rem;
+        margin: 0;
+        padding: 0;
+        border: none;
+        .toggleFilter {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem;
+            border: none;
+            outline: none;
+            border-radius: 6px;
+            background-color: $black-100;
+            border: 1px solid transparent;
+            transition: border .2s ease-in-out, background-color .2s ease-in-out;
+            img {
+                height: 20px;
+                width: 20px;
+            }
+            span {
+                display: none;
+                @media (min-width: $tablet) {
+                    display: block;
+                    font-family: $font-quicksand;
+                    font-weight: $medium;
+                    font-size: 0.875rem;
+                    line-height: 1.25rem;
+                }
+                @media (min-width: $desktop) {
+                    font-size: 1rem;
+                }
+            }
+            &:hover {
+                background-color: $primary-200;
+                border: 1px solid $primary-950;
+            }
+            @media (min-width: 300px) {
+                padding: 0.875rem;
+            }
+        }
+        .highlightToggle {
+            background-color: $primary-200;
+            border: 1px solid $primary-950;
+        }
+        .modal {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: slideIn 0.3s forwards, fadeIn 0.3s forwards;
+            .modalContainer {
+                display: flex;
+                flex-direction: column;
+                background-color: #fff;
+                width: 90%;
+                max-width: 500px;
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: 0 15px 30px 0 rgba(#000, 0.25);
+                animation: scaleIn 0.3s forwards;
+                .modalHeader {
+                    padding: 0 .875rem;
+                    border-bottom: 1px solid #ddd;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    .modalTitle {
+                        font-size: 1rem;
+                        font-family: $font-quicksand;
+                        font-weight: $bold;
+                    }
+                    .iconClose {
+                        padding: 0;
+                        border: 0;
+                        background-color: transparent;
+                        width: 30px;
+                        height: 30px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        line-height: 1;
+                        cursor: pointer;
+                        border-radius: 8px;
+                        transition: 0.15s ease;
+                        img {
+                            width: 15px;
+                            height: 15px;
+                        }
+                        &:hover, &:focus {
+                            background-color: #dfdad7;
+                        }
+                    }
+                    @media (min-width: $desktop) {
+                        padding: 0.5rem 1.5rem;
+                    }
+                }
+                .modalBody {
+                    padding: 1rem;
+                    overflow-y: auto;
+                    .modalBodyContent {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        align-items: center;
+                        background-color: #f7f7f7;
+                        border-radius: 6px;
+                        padding: .5rem;
+                        .modalInfo {
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: center;
+                            align-items: center;
+                            gap: .875rem;
+                            img {
+                                display: none;
+                                @media (min-width: 400px) {
+                                    display: block;
+                                    border-radius: 6px;
+                                    background-color: white;
+                                    padding: 5px;
+                                    height: 25px;
+                                    width: 25px;
+                                }
+                            }
+                            h2 {
+                                font-size: 0.875rem;
+                                font-family: $font-montserrat;
+                                font-weight: $regular;
+                            }
+                        }
+                        @media (min-width: $desktop) {
+                            padding: .875rem;
+                        }
+                    }
+                    @media (min-width: $desktop) {
+                        padding: 1.5rem;
+                    }
+                    .switch {
+                        position: relative;
+                        display: inline-block;
+                        width: 40px;
+                        height: 24px;
+                        input { 
+                            opacity: 0;
+                            width: 0;
+                            height: 0;
+                        }
+                        .slider {
+                            position: absolute;
+                            cursor: pointer;
+                            top: 0;
+                            left: 0;
+                            right: 0;
+                            bottom: 0;
+                            background-color: #ccc;
+                            -webkit-transition: .4s;
+                            transition: .4s;
+                        }
+                        .slider:before {
+                            position: absolute;
+                            content: "";
+                            height: 16px;
+                            width: 16px;
+                            left: 4px;
+                            bottom: 4px;
+                            background-color: white;
+                            -webkit-transition: .4s;
+                            transition: .4s;
+                        }
+                        input:checked + .slider {
+                            background-color: $primary-950;
+                        }
+                        input:focus + .slider {
+                            box-shadow: 0 0 1px $primary-950;
+                        }
+                        input:checked + .slider:before {
+                            -webkit-transform: translateX(16px);
+                            -ms-transform: translateX(16px);
+                            transform: translateX(16px);
+                        }
+                        .slider.round {
+                            border-radius: 34px;
+                        }
+                        .slider.round:before {
+                            border-radius: 50%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes slideIn {
+    from {
+        top: -100%;
+    }
+    to {
+        top: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.5);
+    }
+    to {
+        transform: scale(1);
+    }
+}

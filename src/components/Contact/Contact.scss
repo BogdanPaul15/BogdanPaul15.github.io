@@ -1,0 +1,165 @@
+@import "../../styles/_mixins.scss";
+
+.contactSection {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    @media (min-width: $desktop) {
+        gap: 4rem;
+    }
+    .contactInfo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .contactContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        gap: 6rem;
+        border: 1px solid #E7E7E9;
+        padding: 1rem;
+        border-radius: 1rem;
+        max-width: 25rem;
+        @media (min-width: $tablet) {
+            max-width: none;
+            padding: 1.5rem 1.5rem 1.5rem 2.5rem;
+        }
+        @media (min-width: $desktop) {
+            padding: 2rem 2rem 2rem 3.5rem;
+        }
+        .contactSide {
+            .contactForm {
+                display: block;
+                margin-top: 2.5rem;
+                @media (min-width: $tablet) {
+                    margin-top: 3rem;
+                }
+                @media (min-width: $desktop) {
+                    margin-top: 3.25rem;
+                }
+                .contactFieldset {
+                    display: flex;
+                    flex-direction: column;
+                    margin: 0;
+                    padding: 0;
+                    border: none;
+                    .labelContact {
+                        display: block;
+                        font-family: $font-quicksand;
+                        font-weight: $semiBold;
+                        color: $black-900;
+                        font-size: 0.875rem;
+                        line-height: 1.5rem;
+                        letter-spacing: -.025rem;
+                        @media (min-width: $tablet) {
+                            font-size: 1rem;
+                        }
+                    }
+                    .checkboxFieldset {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        gap: .5rem;
+                        margin: 1.5rem 0 0 0;
+                        padding: 0;
+                        border: none;
+                        font-family: $font-quicksand;
+                        font-weight: $semiBold;
+                        font-size: .875rem;
+                        line-height: 1.5rem;
+                        letter-spacing: -.025em;
+                        .link {
+                            color: $primary-950;
+                        }
+                        .checkbox {
+                            @media (min-width: $tablet) {
+                                height: 1rem;
+                                width: 1rem;
+                            }
+                            @media (min-width: $desktop) {
+                                height: 1.25rem;
+                                width: 1.25rem;
+                            }
+                        }
+                    }
+                    .nameFieldset {
+                        display: flex;
+                        flex-direction: column;
+                        margin: 0;
+                        padding: 0;
+                        border: none;
+                        @media (min-width: $tablet) {
+                            flex-direction: row;
+                            justify-content: space-between;
+                            gap: 2rem;
+                        }
+                    }
+                }
+                .textareaContact {
+                    display: block;
+                    width: 100%;
+                    height: 7rem;
+                    padding: 0.375rem 0.75rem;
+                    margin-top: 0.5rem;
+                    font-family: $font-quicksand;
+                    font-weight: $medium;
+                    font-size: .875rem;
+                    line-height: 1.5rem;
+                    letter-spacing: -.025em;
+                    background-color: $black-100;
+                    border: 1px solid transparent;
+                    border-radius: 0.375rem;
+                    outline: none;
+                    resize: none;
+                    -webkit-box-sizing: border-box;
+                    -moz-box-sizing: border-box;
+                    box-sizing: border-box;
+                    transition: border 0.2s ease-in-out, background-color 0.2s ease-in-out;
+                    box-shadow: inset 0 0 0 0px #fff, inset 0 0 0 calc(1px + 0px) rgb(209 213 219 / 1), 0 1px 2px 0 rgb(0 0 0 / 0.05), 0 0 #0000;
+                    &:hover, &:focus {
+                        background-color: $primary-200;
+                        border: 1px solid $primary-950;
+                    }
+                    @media (min-width: $tablet) {
+                        font-size: 1rem;
+                        padding: 0.5rem 1rem;
+                    }
+                }
+                .buttonContact {
+                    font-family: $font-quicksand;
+                    font-weight: $semiBold;
+                    font-size: 0.875rem;
+                    line-height: 1.5rem;
+                    color: $black-50;
+                    background-color: $primary-950;
+                    border-radius: 0.375rem;
+                    margin-top: 2.5rem;
+                    padding: 0.5rem;
+                    outline: none;
+                    border: none;
+                    @media (min-width: $tablet) {
+                        font-size: 1rem;
+                    }
+                    &:hover {
+                        opacity: 75%;
+                    }
+                }
+            }
+            .formTitle {
+                font-family: $font-quicksand;
+                font-weight: $semiBold;
+                color: $black-950;
+                font-size: 1rem;
+                line-height: 1.5em;
+                letter-spacing: -.025rem;
+                margin: 0;
+                @media (min-width: $tablet) {
+                    font-size: 1.25rem;
+                }
+            }
+        }
+    }
+}

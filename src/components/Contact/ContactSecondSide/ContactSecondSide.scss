@@ -1,0 +1,79 @@
+@import "../../../styles/_mixins.scss";
+
+.contactSecondSide {
+    display: none;
+    @media (min-width: $desktop) {
+        display: flex;
+        flex-direction: column;
+        align-self: stretch;
+        .bluredBackground {
+            position: relative;
+            text-align: center;
+            border-radius: .5rem .5rem 0 0;
+            padding: 4.5rem 3rem;
+            background: rgb(0,0,0);
+            background: linear-gradient(22deg, rgba(0,0,0,1) 0%, rgba(0,104,233,1) 100%);
+            backdrop-filter: blur(10px);
+            .bluredIcon {
+                height: 40px;
+                width: 40px;
+            }
+            .bluredTitle {
+                font-family: $font-quicksand;
+                font-weight: $semiBold;
+                color: $black-50;
+                font-size: 1.25rem;
+                line-height: 1.5em;
+                letter-spacing: -.025rem;
+                max-width: 300px;
+            }
+            .informativeContainer {
+                display: flex;
+                gap: 1rem;
+                position: absolute;
+                top: 215px;
+                left: 50%;
+                -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
+                padding: 1rem;
+                width: 270px;
+                background-color: #fff;
+                border-radius: .5rem;
+                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                .informativeText {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: .5rem;
+                    h3 {
+                        margin: 0;
+                        color: $black-950;
+                        font-family: $font-quicksand;
+                        font-weight: $bold;
+                        color: $black-900;
+                        font-size: .875rem;
+                        line-height: 1.25rem;
+                    }
+                    p {
+                        margin: 0;
+                        font-size: 1rem;
+                        line-height: 1.5rem;
+                        color: $black-950;
+                        font-weight: $bold;
+                        font-family: $font-quicksand;
+                    }
+                }
+            }
+        }
+        .fastContact {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            gap: .5rem;
+            height: 100%;
+            background-color: #f4f4f4;
+            padding: 2.5rem;
+            border-radius: 0 0 .5rem .5rem;
+        }
+    }
+}

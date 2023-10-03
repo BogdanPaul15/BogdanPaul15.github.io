@@ -1,0 +1,8 @@
+@import "styles/mixins";
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 150px
+}
+.framework {
+    background-color: $black-50;
+}
