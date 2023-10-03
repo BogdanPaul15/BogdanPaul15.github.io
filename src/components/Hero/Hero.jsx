@@ -24,7 +24,7 @@ export default function Hero() {
                             <button type="submit" className="buttonSearch">
                                 <img src={whiteRightArrow} alt="Săgeată spre dreapta" />
                             </button>
-                            <button type="submit" className="SROnly"></button>
+                            <button type="submit" className="SROnly">Aplică căutarea</button>
                         </fieldset>
                     </form>
                     <ActionButton text="Medici" action="/medici" />

@@ -6,7 +6,7 @@ export default function ContactItem(props) {
         <a href={props.action} className="contact-link">
             <div className="contact-cont">
                 <div className="iconCont">
-                    <img src={props.icon} />
+                    <img src={props.icon} alt={props.title} />
                 </div>
                 <div className="textCont">
                     <h3>{props.title}</h3>
