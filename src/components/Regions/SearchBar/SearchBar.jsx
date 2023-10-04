@@ -14,10 +14,10 @@ export default function SearchBar({ setResults }) {
     const [isInputFocused, setIsInputFocused] = useState(false);
     useEffect(() => {
         // Initialize results with all data when the component mounts
-        if (isInputFocused)
+        if (isInputFocused && !input)
             setResults(data);
         else { 
-            if (!checkbox)
+            if (!checkbox && !input)
                 setResults([]); 
         }
     }, [isInputFocused]);
@@ -35,6 +35,15 @@ export default function SearchBar({ setResults }) {
         }
     };
 
+    const handleFocus = () => {
+        setIsInputFocused(true);
+        if (input) 
+            storeData(input);
+    };
+    const handleUnFocus = () => {
+        setIsInputFocused(false);
+    };
+
     const handleCheckboxChange = (event) => {
         const isChecked = event.target.checked;
         setCheckbox(isChecked);
@@ -44,7 +53,7 @@ export default function SearchBar({ setResults }) {
             // If the checkbox is checked, display all results
             setResults(data);
         } else {
-            if (input === '' && isInputFocused) {
+            if (input === '') {
                 // If the input is empty, display all results
                 setResults(data);
             } else {
@@ -66,8 +75,8 @@ export default function SearchBar({ setResults }) {
             <fieldset className="regionFieldsetSearch">
                 <label className="SROnly" htmlFor="searchRegion" hidden>Caută o regiune</label>
                 <img src={search} className="iconSearchRegion" alt="Lupă" />
-                <input type="search" className="regionInput" id="searchRegion" name="searchRegion" maxLength="50" placeholder="Caută o regiune" value={input} onChange={(e) => handleChange(e.target.value)} spellCheck="false" autoCorrect="off" results="16" onFocus={() => setIsInputFocused(true)}
-        onBlur={() => setIsInputFocused(false)} />
+                <input type="search" className="regionInput" id="searchRegion" name="searchRegion" maxLength="50" placeholder="Caută o regiune" value={input} onChange={(e) => handleChange(e.target.value)} spellCheck="false" autoCorrect="off" results="16" onFocus={handleFocus}
+        onBlur={handleUnFocus} />
             </fieldset>
             <fieldset className="regionFieldsetCheckbox">
                 <button className={`toggleFilter ${checkbox && 'highlightToggle'}`} onClick={() => setIsOpen(true)}>
