@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { InputValueContext } from '../../../context/InputValueContext';
 import data from '../../../data/regions';
 import search from "../../../assets/images/search.svg"
@@ -12,11 +12,21 @@ export default function SearchBar({ setResults }) {
     const [checkbox, setCheckbox] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
 
+    useEffect(() => {
+        // Initialize results with all data when the component mounts
+        setResults(data);
+    }, [setResults]);
+
     const handleChange = (value) => {
         setInput(value);
         if (!checkbox) {
-            // Only filter if the checkbox is unchecked
-            storeData(value);
+            if (value === '') {
+                // If the input is empty, display all results
+                setResults(data);
+            } else {
+                // If the input is not empty, filter based on the input
+                storeData(value);
+            }
         }
     };
 
@@ -29,15 +39,21 @@ export default function SearchBar({ setResults }) {
             // If the checkbox is checked, display all results
             setResults(data);
         } else {
-            // If the checkbox is unchecked, filter based on the input
-            storeData(input);
+            if (input === '') {
+                // If the input is empty, display all results
+                setResults(data);
+            } else {
+                // If the input is not empty, filter based on the input
+                storeData(input);
+            }
         }
     };
 
     const storeData = (value) => {
         const results = data.filter((region) => {
-            return value && region.name && region.name.toLowerCase().includes(value.toLowerCase());
+            return (value && region.name && region.name.toLowerCase().includes(value.toLowerCase()));
         });
+        console.log(results);
         setResults(results);
     };
 

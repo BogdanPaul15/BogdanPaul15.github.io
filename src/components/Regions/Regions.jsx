@@ -48,9 +48,9 @@ export default function Regions() {
                             <SearchResultsList results={results} />
                         </RegNameContext.Provider>
                     </InputValueContext.Provider>
-                    {
+                    {/* {
                         results.length || input ? '' : <RegionsInfo />
-                    }
+                    } */}
                 </div>
                 <div className="regionSelect">
                     <svg className="germanyMap" id="germany" viewBox="0 0 923 996" fill="none" xmlns="http://www.w3.org/2000/svg">
