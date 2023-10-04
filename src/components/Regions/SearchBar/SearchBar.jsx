@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useState, useEffect, useRef } from 'react'
 import { InputValueContext } from '../../../context/InputValueContext';
 import data from '../../../data/regions';
 import search from "../../../assets/images/search.svg"
@@ -11,15 +11,20 @@ export default function SearchBar({ setResults }) {
     const { input, setInput } = useContext(InputValueContext);
     const [checkbox, setCheckbox] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
-
+    const [isInputFocused, setIsInputFocused] = useState(false);
     useEffect(() => {
         // Initialize results with all data when the component mounts
-        setResults(data);
-    }, [setResults]);
-
+        if (isInputFocused)
+            setResults(data);
+        else { 
+            if (!checkbox)
+                setResults([]); 
+        }
+    }, [isInputFocused]);
+    
     const handleChange = (value) => {
         setInput(value);
-        if (!checkbox) {
+        if (!checkbox && isInputFocused) {
             if (value === '') {
                 // If the input is empty, display all results
                 setResults(data);
@@ -39,7 +44,7 @@ export default function SearchBar({ setResults }) {
             // If the checkbox is checked, display all results
             setResults(data);
         } else {
-            if (input === '') {
+            if (input === '' && isInputFocused) {
                 // If the input is empty, display all results
                 setResults(data);
             } else {
@@ -53,7 +58,6 @@ export default function SearchBar({ setResults }) {
         const results = data.filter((region) => {
             return (value && region.name && region.name.toLowerCase().includes(value.toLowerCase()));
         });
-        console.log(results);
         setResults(results);
     };
 
@@ -62,7 +66,8 @@ export default function SearchBar({ setResults }) {
             <fieldset className="regionFieldsetSearch">
                 <label className="SROnly" htmlFor="searchRegion" hidden>Caută o regiune</label>
                 <img src={search} className="iconSearchRegion" alt="Lupă" />
-                <input type="search" className="regionInput" id="searchRegion" name="searchRegion" maxLength="50" placeholder="Caută o regiune" value={input} onChange={(e) => handleChange(e.target.value)} spellCheck="false" autoCorrect="off" results="16" />
+                <input type="search" className="regionInput" id="searchRegion" name="searchRegion" maxLength="50" placeholder="Caută o regiune" value={input} onChange={(e) => handleChange(e.target.value)} spellCheck="false" autoCorrect="off" results="16" onFocus={() => setIsInputFocused(true)}
+        onBlur={() => setIsInputFocused(false)} />
             </fieldset>
             <fieldset className="regionFieldsetCheckbox">
                 <button className={`toggleFilter ${checkbox && 'highlightToggle'}`} onClick={() => setIsOpen(true)}>
