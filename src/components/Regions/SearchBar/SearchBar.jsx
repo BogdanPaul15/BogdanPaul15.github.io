@@ -53,7 +53,7 @@ export default function SearchBar({ setResults }) {
             // If the checkbox is checked, display all results
             setResults(data);
         } else {
-            if (input === '') {
+            if (input === '' && isInputFocused) {
                 // If the input is empty, display all results
                 setResults(data);
             } else {
