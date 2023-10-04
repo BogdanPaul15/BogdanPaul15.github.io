@@ -37,7 +37,7 @@ export default function SearchBar({ setResults }) {
 
     const handleFocus = () => {
         setIsInputFocused(true);
-        if (input) 
+        if (input && !checkbox) 
             storeData(input);
     };
     const handleUnFocus = () => {
