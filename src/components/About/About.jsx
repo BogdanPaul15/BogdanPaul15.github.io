@@ -23,9 +23,9 @@ export default function About() {
             </div>
             <div className="imageSection">
                 <picture>
-                    <source srcSet={image_webp} type="image/webp" />
-                    <source srcSet={image} type="image/jpeg" />
-                    <img src={image} className="image" alt="Asistentă medicală" />
+                    <source srcSet={image_webp} type="image/webp" width="400" height="600" />
+                    <source srcSet={image} type="image/jpeg" width="400" height="600" />
+                    <img src={image} className="image" alt="Asistentă medicală" width="400" height="600" />
                 </picture>
             </div>
         </section>
