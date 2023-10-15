@@ -1,0 +1,36 @@
+@import "../../../styles/_mixins.scss";
+
+.searchTag {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    padding: .35rem;
+    border: 1px solid $black-200;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: border .2s ease-in-out;
+    .searchTagTitle {
+        font-family: $font-montserrat;
+        font-size: .875rem;
+        font-weight: $medium;
+        color: $black-950;
+    }
+    .numberOfResults {
+        padding: .2rem .5rem;
+        border-radius: 4px;
+        background-color: $black-100;
+        font-family: $font-montserrat;
+        font-size: .75rem;
+        font-weight: $medium;
+        color: $black-950;
+        transition: background-color .2s ease-in-out;
+    }
+    &:hover {
+        border: 1px solid $black-500;
+        .numberOfResults {
+            background-color: $black-200;
+        }
+    }
+}

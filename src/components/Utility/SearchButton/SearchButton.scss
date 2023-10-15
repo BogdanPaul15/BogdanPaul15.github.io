@@ -1,0 +1,25 @@
+@import "../../../styles/_mixins.scss";
+
+.searchButton {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: transparent;
+    border: 1px solid $primary-950;
+    outline: none;
+    border-radius: 0.5rem;
+    span {
+        font-family: $font-quicksand;
+        font-weight: $semiBold;
+        font-size: 1rem;
+        line-height: 1.25rem;
+        letter-spacing: -.025rem;
+        color: $black-950;
+    }
+}

@@ -1,0 +1,300 @@
+@import "../../styles/_mixins.scss";
+
+.mainSearch {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    padding: 0 1rem;
+    max-width: 85rem;
+    @media (min-width: $tablet) {
+        padding: 0 1.5rem;
+    }
+    @media (min-width: $desktop) {
+        // gap: 9rem;
+        // margin-top: 9rem;
+        // padding: 0 2rem;
+    }
+    .titleContainer {
+        // display: flex;
+        // flex-direction: column;
+        // align-items: flex-start;
+        // justify-content: flex-start;
+        // gap: 0.5rem;
+        // background-color: $primary-200;
+        // padding: 2rem 0.5rem 2rem 0.5rem;
+        // border-radius: 1rem;
+        // @media (min-width: $desktop) {
+        //     justify-content: center;
+        //     align-items: center;
+        //     padding: 4rem;
+        // }
+        .searchTitle {
+            font-family: $font-quicksand;
+            font-weight: $black;
+            font-size: 2rem;
+            line-height: 2.5rem;
+            letter-spacing: -.025em;
+            margin: 1rem 0 0;
+            @media (min-width: $tablet) {
+                font-size: 3rem;
+                line-height: 1;
+            }
+        }
+        .searchDesc {
+            font-family: $font-quicksand;
+            font-weight: $regular;
+            color: $black-900;
+            font-size: 1rem;
+            line-height: 1.625rem;
+            letter-spacing: -0.02em;
+            margin: 1rem 0 0;
+            @media (min-width: $tablet) {
+                font-size: 1.25rem;
+                line-height: 1.875rem;
+            }
+        }
+    }
+    .searchWrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: 1rem;
+        margin-top: 1rem;
+        width: 100%;
+        @media (min-width: $tablet) {
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+        }
+        .filterAndSort {
+            align-self: stretch;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            gap: .5rem;
+            @media (min-width: $desktop) {
+                align-items: stretch;
+            }
+        }
+        .searchDoctor {
+            width: 100%;
+            flex-grow: 2;
+            display: flex;
+            flex-direction: row;
+            margin: 0;
+            padding: 0;
+            border: none;
+            @media (min-width: $desktop) {
+                flex: 1 1 0;
+            }
+            .doctorFieldsetSearch {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                gap: 0.5rem;
+                margin: 0;
+                border: none;
+                width: 100%;
+                padding: 0.5rem;
+                background-color: $black-100;
+                border-radius: 6px;
+                .iconSearchDoctor {
+                    display: none;
+                    @media (min-width: $tablet) {
+                        display: block;
+                        position: absolute;
+                        margin-top: 0.80rem;
+                        margin-left: 0.875rem;
+                    }
+                }
+                button {
+                    outline: none;
+                    border: none;
+                    background-color: $primary-950;
+                    padding: 0.8125rem;
+                    font-family: $font-quicksand;
+                    font-size: 0.875rem;
+                    font-weight: $semiBold;
+                    color: $black-50;
+                    border-radius: 6px;
+                    &:hover {
+                        opacity: 75%;
+                    }
+                }
+                .doctorInput {
+                    width: 100%;
+                    font-size: 0.875rem;
+                    font-family: $font-montserrat;
+                    font-weight: $medium;
+                    background-color: $black-100;
+                    border-radius: 6px;
+                    outline: none;
+                    border: none;
+                    box-sizing: border-box;
+                    @media (min-width: $tablet) {
+                        text-indent: 2.75rem;
+                    }
+                }
+                input[type="search" i]::-webkit-search-cancel-button {
+                    -webkit-appearance: none;
+                    height: 1em;
+                    width: 1em;
+                    background: url("../../assets/images/x.svg") no-repeat 50% 50%;
+                    background-size: contain;
+                    opacity: 0;
+                    pointer-events: none;
+                }
+                input[type="search"]:focus::-webkit-search-cancel-button {
+                    opacity: 1;
+                    pointer-events: all;
+                }
+                input[type="search"]:hover::-webkit-search-cancel-button {
+                    cursor: pointer;
+                }
+            }
+        }
+        .searchFilters {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: white;
+            padding: 0.8125rem;
+            border: 1px solid $black-300;
+            border-radius: 6px;
+            outline: none;
+            span {
+                font-family: $font-quicksand;
+                font-weight: $semiBold;
+                font-size: 0.875rem;
+                color: $black-950;
+            }
+        }
+    }
+    .listSearchWrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        @media (min-width: $desktop) {
+            gap: 3rem;
+        }
+        .searchSecondSide {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 348px;
+            .newsletterInfo {
+                display: none;
+                @media (min-width: $desktop) {
+                    display: flex;
+                    align-self: stretch;
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 1rem;
+                    padding: 1.5rem;
+                    border-radius: 6px;
+                    background-color: #e7f2fb;
+                    max-width: 300px;
+                }
+                .newsletterHead {
+                    .newsletterIcon {
+                        width: 20px;
+                        height: 20px;
+                        padding: .75rem;
+                        background-color: $primary-200;
+                        border: 1px solid $primary-950;
+                        border-radius: 6px;
+                        box-shadow: 0px 1px 6px 0px rgba(194, 224, 255, 1), 0px 2px 30px 0px rgba(234, 237, 241, 0.3);
+                    }
+                }
+                .newsletterText {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    gap: 0.5rem;
+                    .newsletterTitle {
+                        font-family: $font-montserrat;
+                        font-size: 1rem;
+                        font-weight: $semiBold;
+                        margin: 0;
+                    }
+                    .newsletterDesc {
+                        font-family: $font-montserrat;
+                        font-size: 0.875rem;
+                        font-weight: $medium;
+                        color: $black-700;
+                        margin: 0;
+                    }
+                }
+                .newsletterForm {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    gap: .5rem;
+                    width: 100%;
+                    input {
+                        font-size: 0.75rem;
+                        font-family: $font-montserrat;
+                        font-weight: $medium;
+                        padding: 0.875rem;
+                        background-color: $black-50;
+                        border-radius: 6px;
+                        border: 1px solid transparent;
+                        outline: none;
+                        box-sizing: border-box;
+                        transition: border .2s ease-in-out, background-color .2s ease-in-out;
+                        &:hover, &:focus, &:not(:empty) {
+                            border: 1px solid $primary-950;
+                            background-color: $black-50;
+                        }
+                    }
+                    button {
+                        color: $black-50;
+                        font-size: .75rem;
+                        font-family: $font-montserrat;
+                        font-weight: $medium;
+                        padding: 0.75rem;
+                        border: none;
+                        outline: none;
+                        background-color: $primary-950;
+                        border-radius: 6px;
+                        &:hover {
+                            opacity: 75%;
+                        }
+                    }
+                }
+            }
+            .relatedSearches {
+                display: none;
+                @media (min-width: $desktop) {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    gap: 1rem;
+                    .relatedTitle {
+                        font-family: $font-montserrat;
+                        font-size: 1rem;
+                        font-weight: $semiBold;
+                        margin: 0;
+                    }
+                    .relatedSearchesList {
+                        flex: 0 0 auto;
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: flex-start;
+                        align-items: center;
+                        flex-wrap: wrap;
+                        gap: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}

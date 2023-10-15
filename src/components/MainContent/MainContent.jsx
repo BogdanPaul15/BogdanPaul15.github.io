@@ -5,9 +5,9 @@ import Benefits from '../Benefits/Benefits'
 import About from '../About/About'
 import Contact from '../Contact/Contact'
 
-export default function MainContent(props) {
+export default function MainContent() {
     return (
-        <main className="main">
+        <main className="mainHome">
             <Regions />
             <Benefits />
             <About />

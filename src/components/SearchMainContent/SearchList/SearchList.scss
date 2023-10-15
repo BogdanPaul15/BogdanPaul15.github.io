@@ -1,0 +1,62 @@
+@import "../../../styles/_mixins.scss";
+
+@import "../../../styles/_mixins.scss";
+
+.doctorMenu {
+    flex-grow: 2;
+    display: block;
+    .countResults {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        .doctorsFound {
+            font-family: $font-montserrat;
+            font-size: 0.875rem;
+            font-weight: $semiBold;
+            @media (min-width: $desktop) {
+                font-size: 0.875rem;
+            }
+        }
+        .dropdown {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            span {
+                display: none;
+                @media (min-width: $tablet) {
+                    display: block;
+                    font-family: $font-montserrat;
+                    font-size: 0.875rem;
+                    font-weight: $medium;
+                    color: $black-500;
+                }
+            }
+            select {
+                border: 1px solid #D9D9D9;
+                border-radius: 6px;
+                padding: 0.375rem;
+                outline: none;
+                text-decoration: none;
+                font-family: $font-montserrat;
+                font-size: 0.875rem;
+                font-weight: $medium;
+                color: $black-950;
+            }
+        }
+    }
+    .doctorList {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        margin-top: 1rem;
+        &:empty {
+            display: none;
+        }
+    }
+}
