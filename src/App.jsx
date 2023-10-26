@@ -4,7 +4,7 @@ import NavigationBar from './components/NavigationBar/NavigationBar'
 import Home from './pages/Home/Home'
 import FooterBar from './components/FooterBar/FooterBar'
 import "./global.scss"
-import SearchMainContent from './components/SearchMainContent/SearchMainContent'
+import Search from './pages/Search/Search'
 
 export default function App() {
     return (
@@ -13,7 +13,7 @@ export default function App() {
                 <NavigationBar />
                 <Routes>
                     <Route path="/" element={ <Home /> }/>
-                    <Route path="/medici" element={ <SearchMainContent /> }/>
+                    <Route path="/medici" element={ <Search /> }/>
                     <Route path="*" element="" />
                 </Routes>
                 <FooterBar />

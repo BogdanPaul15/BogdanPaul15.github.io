@@ -1,0 +1,64 @@
+@import "../../../styles/_mixins.scss";
+
+.homeItem {
+    display: block;
+    border-bottom: 1px solid #D9D9D9;
+    &:last-child {
+        border-bottom: none;
+        &:hover {
+            border-radius: 0 0 13px 13px;
+        }
+    }
+    &:hover {
+        background-color: $black-200;
+    }
+    .homeLink {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: .75rem;
+        padding: 0.5rem .875rem;
+        text-decoration: none;
+        @media (min-width: $tablet) {
+            padding: 0.5rem .75rem;
+        }
+        .homeIcon {
+            display: none;
+            @media (min-width: $tablet) {
+                display: block;
+                img {
+                    height: 20px;
+                    width: 20px;
+                    @media (min-width: $desktop) {
+                        height: 23px;
+                        width: 23px;
+                    }
+                }
+            }
+        }
+        .homeText {
+            .doctorHomeName {
+                margin: 0;
+                font-size: .75rem;
+                font-family: $font-montserrat;
+                font-weight: $medium;
+                color: $black-950;
+                line-height: 1.5rem;
+                text-transform: uppercase;
+                @media (min-width: $tablet) {
+                    font-size: .875rem;
+                }
+            }
+            .doctorHomeSpec {
+                font-size: .75rem;
+                font-family: $font-montserrat;
+                font-weight: $semiBold;
+                color: $black-500;
+                line-height: 1.5rem;
+                // @media (min-width: $tablet) {
+                //     font-size: .875rem;
+                // }
+            }
+        }
+    }
+}

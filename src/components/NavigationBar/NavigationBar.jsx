@@ -1,7 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { HashLink } from 'react-router-hash-link';
 import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo.svg"
+
 import "./NavigationBar.scss"
 
 export default function NavigationBar() {
@@ -17,6 +19,11 @@ export default function NavigationBar() {
             setIsMenuOpen(!isMenuOpen);
         }
     }
+    const { pathname } = useLocation();
+
+    useEffect(() => {
+        setIsMenuOpen(false); // Close the navigation panel
+      }, [ pathname ]);
 
     return (
         <header className={`header ${isMenuOpen ? 'activeMenu' : ''}`} id="nav">

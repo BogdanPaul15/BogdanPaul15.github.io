@@ -81,53 +81,63 @@
                     margin: 0;
                     padding: 0;
                     border: none;
-                    .iconSearch {
-                        display: none;
-                        @media (min-width: $tablet) {
-                            display: block;
-                            position: absolute;
-                            margin-top: 0.84rem;
-                            margin-left: 0.875rem;
-                        }
-                    }
-                    .inputSearch {
+                    .searchHomeDoctors {
                         flex-grow: 2;
-                        font-size: 0.875rem;
-                        font-family: $font-montserrat;
-                        font-weight: $medium;
-                        padding: 0.875rem;
-                        background-color: $black-100;
-                        border-radius: 6px 0px 0px 6px;
-                        border: 1px solid transparent;
-                        border-right: none;
-                        outline: none;
-                        box-sizing: border-box;
-                        transition: border .2s ease-in-out, background-color .2s ease-in-out;
-                        @media (min-width: $tablet) {
-                            text-indent: 1.75rem;
+                        position: relative;
+                        .iconSearch {
+                            display: none;
+                            @media (min-width: $tablet) {
+                                display: block;
+                                position: absolute;
+                                margin-top: 0.84rem;
+                                margin-left: .875rem;
+                            }
                         }
-                        &:hover, &:focus {
-                            border: 1px solid $primary-950;
+                        .inputSearch {
+                            width: 100%;
+                            font-size: 0.875rem;
+                            font-family: $font-montserrat;
+                            font-weight: $semiBold;
+                            padding: 0.875rem;
+                            background-color: $black-100;
+                            border-radius: 6px 0px 0px 6px;
+                            border: 1px solid $black-100;
                             border-right: none;
-                            border-radius: 6px 0px 0px 0px;
-                            background-color: $primary-200;
+                            outline: none;
+                            box-sizing: border-box;
+                            transition: border .2s ease-in-out, background-color .2s ease-in-out;
+                            &::placeholder {
+                                font-weight: $medium;
+                            }
+                            @media (min-width: $tablet) {
+                                text-indent: 1.875rem;
+                            }
+                            @media (min-width: $desktop) {
+                                text-indent: 2rem;
+                            }
+                            &:hover, &:focus {
+                                border: 1px solid $primary-950;
+                                border-right: none;
+                                border-radius: 6px 0px 0px 0px;
+                                background-color: $primary-200;
+                            }
                         }
-                    }
-                    input[type="search" i]::-webkit-search-cancel-button {
-                        -webkit-appearance: none;
-                        height: 1em;
-                        width: 1em;
-                        background: url("../../assets/images/x.svg") no-repeat 50% 50%;
-                        background-size: contain;
-                        opacity: 0;
-                        pointer-events: none;
-                    }
-                    input[type="search"]:focus::-webkit-search-cancel-button {
-                        opacity: 1;
-                        pointer-events: all;
-                    }
-                    input[type="search"]:hover::-webkit-search-cancel-button {
-                        cursor: pointer;
+                        input[type="search" i]::-webkit-search-cancel-button {
+                            -webkit-appearance: none;
+                            height: 1em;
+                            width: 1em;
+                            background: url("../../assets/images/x.svg") no-repeat 50% 50%;
+                            background-size: contain;
+                            opacity: 0;
+                            pointer-events: none;
+                        }
+                        input[type="search"]:focus::-webkit-search-cancel-button {
+                            opacity: 1;
+                            pointer-events: all;
+                        }
+                        input[type="search"]:hover::-webkit-search-cancel-button {
+                            cursor: pointer;
+                        }
                     }
                     .buttonSearch {
                         display: flex;

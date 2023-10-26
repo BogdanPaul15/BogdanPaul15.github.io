@@ -1,19 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 import filter from '../../assets/images/filters.svg';
 import search from "../../assets/images/search.svg"
 import email from "../../assets/images/envelope-regular.svg"
 import SearchList from './SearchList/SearchList';
 import SearchTag from '../Utility/SearchTag/SearchTag';
 import SubtitleTag from '../Utility/SubtitleTag/SubtitleTag';
+import regionData from '../../data/regions'
+import specData from '../../data/spec'
 import './SearchMainContent.scss';
 
 export default function SearchMainContent() {
+    const [selectedRegions, setSelectedRegions] = useState([]);
+    const [selectedSpec, setSelectedSpec] = useState([]);
+
+    const handleCheckboxChange = (event, region) => {
+        const { checked } = event.target;
+        if (checked) {
+          setSelectedRegions([...selectedRegions, region]);
+        } else {
+          setSelectedRegions(selectedRegions.filter((selectedRegion) => selectedRegion.id !== region.id));
+        }
+      };
+    const handleCheckboxChangeSpec = (event, spec) => {
+        const { checked } = event.target;
+        if (checked) {
+          setSelectedSpec([...selectedSpec, spec]);
+        } else {
+          setSelectedSpec(selectedSpec.filter((selectedSpec) => selectedSpec.id !== spec.id));
+        }
+      };
+
+    console.log(selectedRegions);
+    console.log(selectedSpec);
     return (
         <main className="mainSearch">
             <div className="titleContainer">
                 <SubtitleTag text="Medici" />
                 <h1 className="searchTitle">Caută Medici Români în Germania</h1>
-                <h3 className="searchDesc">Descoperă comunitatea medicală românească din Germania.</h3>
+                <h3 className="searchDesc">Descoperă comunitatea medicală românească din Germania</h3>
             </div>
             <div className="searchWrapper">
                 <form className="searchDoctor">
@@ -27,7 +51,41 @@ export default function SearchMainContent() {
                 <button className="searchFilters">
                     <img src={filter} alt="" />
                     <span>Filtre</span>
+                    <span className="activeFilters">
+                        {/* Here should be the number of selected filters */}
+                    </span>
                 </button>
+                <div className="filtersContainer">
+                    <h2>Filtre</h2>
+                    <details>
+                        <summary>Regiune</summary>
+                        {regionData.map((region) => (
+                            <div key={region.id}>
+                            <input
+                                type="checkbox"
+                                name={region.name}
+                                checked={selectedRegions.some((selectedRegion) => selectedRegion.id === region.id)}
+                                onChange={(event) => handleCheckboxChange(event, region)}
+                            />
+                            <label htmlFor={region.name}>{region.name}</label>
+                            </div>
+                        ))}
+                    </details>
+                    <details>
+                        <summary>Specializare</summary>
+                        {specData.map((spec) => (
+                            <div key={spec.id}>
+                            <input
+                                type="checkbox"
+                                name={spec.name}
+                                checked={selectedSpec.some((selectedSpec) => selectedSpec.id === spec.id)}
+                                onChange={(event) => handleCheckboxChangeSpec(event, spec)}
+                            />
+                            <label htmlFor={spec.name}>{spec.name}</label>
+                            </div>
+                        ))}
+                    </details>
+                </div>
             </div>
             <div className="listSearchWrapper">
                 <SearchList />
